@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import java.sql.Timestamp;
+import java.util.List;
 
 public class BonusEmployeeRepo implements AutoCloseable {
 
@@ -41,8 +42,16 @@ public class BonusEmployeeRepo implements AutoCloseable {
         entityManager.close();
     }
 
+    public List<BonusEmployee> findAll() {
+        entityManager = JPAProvider.getEntityManager();
+        final List<BonusEmployee> bonusEmployees = entityManager.createQuery("select be from Bonus_Employee be left join fetch Bonus b on b.id=be.bonus.id left join fetch Employee e on e.id=be.employee.id ", BonusEmployee.class).getResultList();
+        return bonusEmployees;
+    }
+
     @Override
     public void close() throws Exception {
 
     }
+
+
 }

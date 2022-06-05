@@ -13,7 +13,12 @@
 <body>
 <a href="saveBonus.jsp">ثبت بن جدید</a>
 <br/>
+<br/>
 <a href="/api/bonus/show">ادیت بن های قبلی</a>
+<br/>
+<br/>
+<a href="/api/bonus/show-bonuses-purchasers">مشاهده اطلاعات بن های خریده شده و خریدارها</a>
+<br/>
 <br/>
 </body>
 </html>
