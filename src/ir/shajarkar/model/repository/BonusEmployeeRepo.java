@@ -4,15 +4,17 @@ import ir.shajarkar.common.JPAProvider;
 import ir.shajarkar.model.entity.Bonus;
 import ir.shajarkar.model.entity.BonusEmployee;
 import ir.shajarkar.model.entity.Employee;
+import ir.shajarkar.model.validation.BonusEmployeeValidation;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
+import javax.xml.bind.ValidationException;
 import java.sql.Timestamp;
 import java.util.List;
 
 public class BonusEmployeeRepo implements AutoCloseable {
-
+private final BonusEmployeeValidation bonusEmployeeValidation=BonusEmployeeValidation.getInstance();
     private BonusEmployeeRepo() {
     }
 
@@ -24,10 +26,11 @@ public class BonusEmployeeRepo implements AutoCloseable {
 
     private EntityManager entityManager;
 
-    public void save(Bonus bonus, Employee employee) {
+    public void save(Bonus bonus, Employee employee) throws ValidationException {
         entityManager = JPAProvider.getEntityManager();
         BonusEmployee bonusEmployee = new BonusEmployee();
         EntityTransaction transaction = entityManager.getTransaction();
+        bonusEmployeeValidation.hasBoughtLessThanThreeItems(employee.getId());
         final TypedQuery<Bonus> query = entityManager.createQuery("select b from Bonus b where b.id=:id", Bonus.class);
         query.setParameter("id", bonus.getId());
         final Bonus singleResult = query.getSingleResult();

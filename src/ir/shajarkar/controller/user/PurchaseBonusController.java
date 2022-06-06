@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.ValidationException;
 import java.io.IOException;
 
 
@@ -19,12 +20,15 @@ public class PurchaseBonusController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             final Long bonusId = Long.valueOf(req.getParameter("bonus_id"));
-            final Long employeeId = 1L;
+            final Long employeeId = 2L;
             //Long.valueOf(req.getParameter("employee_id"));
             Bonus bonus = new Bonus().setId(bonusId);
             Employee employee = new Employee().setId(employeeId);
             BonusEmployeeService.getInstance().purchaseBonus(employee, bonus);
             req.getRequestDispatcher("/api/bonus/showNotEmpty").forward(req, resp);
+        } catch (ValidationException ex) {
+            req.setAttribute("error", ex.getMessage());
+            resp.sendError(700);
         } catch (Exception e) {
             e.printStackTrace();
         }
