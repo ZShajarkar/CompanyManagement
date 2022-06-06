@@ -1,12 +1,8 @@
 
 X
 (src/ir/shajarkar/common/JPAProvider.java,d\e\de4f2cd0c9129a9baaab6a5b7215c3ae4497a504
-[
-+src/ir/shajarkar/model/entity/Employee.java,a\e\ae82bf1ac1ddd94d5d691d2321e6310152919a43
 `
 0src/ir/shajarkar/model/entity/BonusEmployee.java,9\2\928d48f1ef8a37ba21f02b929d1df1a2732dee6d
-L
-src/META-INF/persistence.xml,c\9\c9542b0c61459454efdae90e75de54a72077498b
 X
 (src/ir/shajarkar/model/entity/Bonus.java,f\e\fef0c2b728b802030b40ea217831d6f4f37730b2
 f

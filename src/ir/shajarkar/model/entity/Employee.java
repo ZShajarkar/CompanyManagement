@@ -14,7 +14,12 @@ public class Employee {
     private String lastName;
     @Column()
     private String code;
-
+    @Column(length = 20)
+    private String username;
+    @Column(length = 20)
+    private String password;
+    @Column(length = 20)
+    private String role;
 
     public Long getId() {
         return id;
@@ -52,4 +57,30 @@ public class Employee {
         return this;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public Employee setUsername(String username) {
+        this.username = username;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Employee setPassword(String password) {
+        this.password = password;
+        return this;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public Employee setRole(String role) {
+        this.role = role;
+        return this;
+    }
 }

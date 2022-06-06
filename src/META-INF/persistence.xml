@@ -9,9 +9,9 @@
             <property name="hibernate.connection.url" value="jdbc:oracle:thin:@//localhost:1521/XEPDB1"/>
             <property name="hibernate.connection.username" value="ZEINAB"/>
             <property name="hibernate.connection.password" value="practice"/>
-          <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
             <property name="hibernate.show_sql" value="true"/>
-<!--         <property name="hibernate.hbm2ddl.auto" value="create-drop"/>-->
+<!--            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>-->
         </properties>
     </persistence-unit>
 </persistence>
