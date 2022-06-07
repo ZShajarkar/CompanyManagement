@@ -20,5 +20,7 @@
 <a href="/api/bonus/show-bonuses-purchasers">مشاهده اطلاعات بن های خریده شده و خریدارها</a>
 <br/>
 <br/>
+<a href="employee.jsp">صفحه ثبت نام کارمندان</a>
+<br/>
 </body>
 </html>

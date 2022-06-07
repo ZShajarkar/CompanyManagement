@@ -19,7 +19,7 @@ public class RequestMonitor implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         Employee user = (Employee) request.getSession().getAttribute("user");
-        if (user != null && (request.getRequestURI().split("/")[1].trim().equals(user.getRole()) || request.getRequestURI().split("/")[1].trim().equals("both"))) {
+        if (user != null && (request.getRequestURI().split("/")[1].trim().equals(user.getRole()))) {
             filterChain.doFilter(request, response);
         } else {
             response.sendError(403);

@@ -19,4 +19,12 @@
         <filter-name>monitor</filter-name>
         <url-pattern>/user/*</url-pattern>
     </filter-mapping>
+    <context-param>
+        <param-name>admin-username</param-name>
+        <param-value>admin</param-value>
+    </context-param>
+    <context-param>
+        <param-name>admin-password</param-name>
+        <param-value>admin</param-value>
+    </context-param>
 </web-app>

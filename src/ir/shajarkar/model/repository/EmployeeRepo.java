@@ -4,6 +4,7 @@ import ir.shajarkar.common.JPAProvider;
 import ir.shajarkar.model.entity.Employee;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 public class EmployeeRepo implements AutoCloseable {
@@ -17,6 +18,14 @@ public class EmployeeRepo implements AutoCloseable {
         query.setParameter("password", user.getPassword());
         final Employee employee = query.getSingleResult();
         return employee;
+    }
+
+    public void save(Employee user) throws Exception {
+        entityManager = JPAProvider.getEntityManager();
+        final EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        entityManager.persist(user);
+        transaction.commit();
     }
 
     @Override

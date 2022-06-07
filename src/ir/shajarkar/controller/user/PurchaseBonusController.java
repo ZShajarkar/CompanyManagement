@@ -20,8 +20,8 @@ public class PurchaseBonusController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             final Long bonusId = Long.valueOf(req.getParameter("bonus_id"));
-            final Long employeeId = 2L;
-            //Long.valueOf(req.getParameter("employee_id"));
+            final Employee user = (Employee) req.getSession().getAttribute("user");
+            final Long employeeId = Long.valueOf(user.getId());
             Bonus bonus = new Bonus().setId(bonusId);
             Employee employee = new Employee().setId(employeeId);
             BonusEmployeeService.getInstance().purchaseBonus(employee, bonus);

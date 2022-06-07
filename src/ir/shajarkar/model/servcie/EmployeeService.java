@@ -18,4 +18,10 @@ public class EmployeeService {
             return userDA.selectByUsernameAndPassword(user);
         }
     }
+
+    public void register(Employee user) throws Exception {
+        try (EmployeeRepo userDA = new EmployeeRepo()) {
+            userDA.save(user);
+        }
+    }
 }
